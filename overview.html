@@ -72,7 +72,10 @@ The real text begins here.
    <li><a href="#excit">Excitation Pathway</a></li>
    <li><a href="#body">Microscope Body</a></li>
    <li><a href="#emiss">Emission Pathway</a></li>
+   <br>Also on this page is a run down of the wavelength dependent optics<br>
+  <li><a href="#wav">Wavelength Dependent Optics</a></li>
  </ul>
+
 
  <h1 id="-excitation-pathway"><a id="excit"></a> Excitation Pathway</h1>
  <figure style="max-width:700px;">
@@ -143,6 +146,67 @@ Upon entering the box, lasers are reflected by the excitation dichroic DM1 into 
 <img src="images/emparts.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; ">
 </figure>
 The first dichroic mirror in the emission pathway, DM2, reflects light below 640 nm, sending donor emission into the path to APD0 whilst permitting acceptor photons through to APD1. In both cases a band-pass filter (F1, F2) is used to clean up laser bleed-through and Raman scatter from the emission, and a lens (L6, L7) is used to focus the beam onto the APD.
+
+<h1 id="-Wavelength dependent components"><a id="wav"></a> Wavelength Dependent Components</h1>
+These are the wavelength dependent components used in the original smfBox, if you would prefer to excite with / detect a different set of wavelengths then that should be possible, but you will need to change these. Note that whilst the 515 laser cannot excite common green fluorophores as efficiently as a 532, it can be more easily digitally modulated without the use of an AOM,
+and can also excite fluorophores in the 488 range allowing for a wide choice of labelling. <br>
+<table>
+  <thead>
+    <tr>
+      <th><strong>Part Name</strong></th>
+      <th><strong>Company</strong></th>
+      <th><strong>Product code</strong></th>
+      <th><strong>Quantity</strong></th>
+      <th><strong>Part Nr</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Omicron LightHUB®-2 with 515nm 80mW, and 638nm 100mW</td>
+      <td>Omicron</td>
+      <td><a href="https://www.omicron-laser.de/english/light-engines/lighthub-laser-combiner/lighthub-laser-combiner.html">LightHUB-2</a></td>
+      <td>1</td>
+      <td>Laser</td>
+    </tr>
+    <tr>
+      <td>Excitation Dichroic</td>
+      <td>Chroma</td>
+      <td><a href="https://www.chroma.com/products/parts/zt532-640rpc">ZT532/640rpc</a></td>
+      <td>1</td>
+      <td>DM1</td>
+    </tr>
+    <tr>
+      <td>Emission Dichroic</td>
+      <td>Chroma</td>
+      <td><a href="https://www.chroma.com/products/custom-inventory/nc395323-t640lpxr">NC395323 - T640lpxr</a></td>
+      <td>1</td>
+      <td>DM2</td>
+    </tr>
+    <tr>
+      <td>Donor Emission Filter</td>
+      <td>Semrock</td>
+      <td><a href="https://www.semrock.com/FilterDetails.aspx?id=FF01-571/72-25">FF01-571/72-25</a></td>
+      <td>1</td>
+      <td>F1</td>
+    </tr>
+    <tr>
+      <td>Acceptor Emission Filter</td>
+      <td>Semrock</td>
+      <td><a href="https://www.semrock.com/FilterDetails.aspx?id=FF01-679/41-25">FF01-679/41-25</a></td>
+      <td>1</td>
+      <td>F2</td>
+    </tr>
+  </tbody>
+</table>
+<figure style="max-width:1000px;">
+<img src="images/opticspectra.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; ">
+<figcaption>
+<strong>Fig 5a. </strong>Graph showing the absorbance spectra of two typical fluorophores used with the smfBox, the transmission spectrum of the excitation dichroic which reflects the lasers (shown with dotted lines) into the sample, but permits light emitted from the sample.
+ <strong>5b. </strong>Emission spectra of the same dyes (dark lines), with the filters used to clean up the emission (dotted lines). The spectra of the final light permitted to the APD's is shown in solid blocks. In yellow is the donor emission which reaches the acceptor APD.
+
+</figcaption></figure>
+<br>On casual inspection of the above graph it may appear that greater signal from the donor could be acquired with a longer wavelength bandpass filter. It is worth noting that whilst this is true, it would also permit emission of the raman scatter from the 515 laser, so the bandpass filter used was selected specifically to remove this scatter and lower background.
+
 
 </section>
 <br><footer><script src="footer.js"></script></footer>

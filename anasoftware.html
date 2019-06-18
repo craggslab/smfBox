@@ -60,7 +60,7 @@ The real text begins here.
 <h1 id="Data Analysis">Data Analysis</h1>
 <br>
 <p>
-For analysis of data from the smfBox we recommend the <a href="https://fretbursts.readthedocs.io/en/latest/" target="_self">FRETBursts</a> python package <a href="#Fretbursts">(Ingargiola 2016)</a>, and provide <a href="http://jupyter.org/" target="_self">Jupyter</a> Notebooks with which to do this.
+For analysis of data from the smfBox we recommend either the <a href="https://fretbursts.readthedocs.io/en/latest/" target="_self">FRETBursts</a> python package <a href="#Fretbursts">(Ingargiola 2016)</a>, or the MATLAB software package PAM. If using python and FRETBursts, we provide a few <a href="http://jupyter.org/" target="_self">Jupyter</a> Notebooks with which to do this.
 
 Jupyter Notebooks run in browser, and can be easily edited by anyone with a knowledge of python whilst remaining accessible to non-programmers. They can also be published as stand alone .html's for transparent presentation of data alongside the analysis exactly as it was performed. <a href="./Jnotebooks/example.html" target="_self">See here for an example</a>. To set this up:
 <p/>
@@ -69,6 +69,8 @@ Jupyter Notebooks run in browser, and can be easily edited by anyone with a know
 <li>2. In the anaconda prompt type "conda install fretbursts -c conda-forge", and follow instructions in the prompt. For more information on installing FRETbursts go <a href="https://fretbursts.readthedocs.io/en/latest/installation.html" target="_self">here<a/> </li>
 <li>3. Download the analysis Jupyter Notebooks from our github. <a href="https://github.com/BenjaminAmbrose/smfBox/tree/master/Jnotebooks" target="_self">here</a></li>
 <li>4. Open the anaconda navigator, run Jupyter, and navigate to the notebooks from within your web browser.</li>
+<br>
+<li>If you want to do more advanced analysis such as PDA (as we showed with hairpins in our paper), PAM can do this and supports HDF5 files. You can find instructions for installing PAM <a href="https://gitlab.com/PAM-PIE/PAM" target="_self">here</a> </li>
 </ul>
  <h1 id="Data Files"><a id="References"></a>Data Files</h1>
   <figure style="max-width:559px;">
@@ -77,7 +79,7 @@ Jupyter Notebooks run in browser, and can be easily edited by anyone with a know
  <strong>Fig 1:</strong> Types of data converter we provide for the smfBox
  </figcaption></figure>
  <br>
-<p>The acquisition software saves txt files which contain the timestamp of each photon in one column and the detector it arrived at in a second column. For usage in analysis we have created python scripts which can convert these TXT files to the open source photon-HDF5 format <a href="#hdf5">(Ingargiola 2016)</a>. This format contains not only the raw data but also can be written with sufficient metadata that the reader knows i. the origin and nature of the sample and experiment the data was acquired from and ii. Information required to interpret it. In this case the data originates from two unpolarised detectors acquired with a μs-ALEX scheme, and the script will write an HDF5 file which contains information for any analysis software to interpret it as such.
+<p>The standalone C software will automatically write files in the open source photon-HDF5 format <a href="#hdf5">(Ingargiola 2016)</a>, however the LabView acquisition software saves txt files which must be converted. The txt's contain the timestamp of each photon in one column and the detector it arrived at in a second column. For usage in analysis we have created python scripts which can convert these TXT files to hdf5's. This format contains not only the raw data but also can be written with sufficient metadata that the reader knows i. the origin and nature of the sample and experiment the data was acquired from and ii. Information required to interpret it. In this case the data originates from two unpolarised detectors acquired with a μs-ALEX scheme, and the script will write an HDF5 file which contains information for any analysis software to interpret it as such.
 The scripts provided can convert a single TXT to a single HDF5, multiple TXT’s from one acquisition (iteration conversion) into one HDF5, or multiple runs into their respective HDF5's (batch conversion).
 These conversion scripts are available as Jupyter Notebooks, as the analysis we provide is with the FRETBursts python module in Jupyter. However there is no reason why the code should not work in any other python environment as long as it has the phconvert module.
 
@@ -98,7 +100,7 @@ These conversion scripts are available as Jupyter Notebooks, as the analysis we 
   <li>4.  With correction factors found you can run the FRET analysis notebook defining the four correction factors at the beginning. Burst-by-burst information (which include the FRET efficiency distribution) can be exported here as .csv's for further analysis else where if necessary</li>
   <li> The <a href="https://github.com/OpenSMFS/FRETBursts/tree/master/notebooks" target="_self">FRETBursts github</a> also contains notebooks for the BVA and 2CDE analysis techniques which are worth looking into if you are interested in investigating dynamics. </li>
 
-  <br> Please note that if you use FRETBursts in the analysis of your own research, then you should cite the FRETBursts paper (see below).
+  <br> Please note that if you use FRETBursts in the analysis for your own research, then you should cite the FRETBursts paper (see below).
 </ul>
  <h1 id="References"><a id="References"></a>References</h1>
  <li>FRETBursts: An Open Source Toolkit for Analysis of Freely-Diffusing Single-Molecule FRET
