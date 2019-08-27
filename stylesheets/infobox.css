@@ -1,0 +1,26 @@
+.note-box {
+    background-color: rgb(186, 206, 248);
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #000000;
+    border-style: solid;
+    padding: 10px;
+}
+
+.warning-box {
+    background-color: #fdc321;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #000000;
+    border-style: solid;
+    padding: 10px;
+}
+
+.info-box {
+    background-color: rgb(193, 247, 157);
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #000000;
+    border-style: solid;
+    padding: 10px;
+}

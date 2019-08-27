@@ -9,117 +9,357 @@ Based on this theme: https://github.com/broccolini/dinky , which mentioned that 
 is appreciated. Thanks, broccolini!
 -->
 <html lang="en">
-  <head>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <base target="_blank">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="citation_title" content="smfBox">
-    <meta name="citation_author" content="Craggs Lab">
-    <meta name="citation_publication_date" content="[insert publicaton date here]">
-    <title>smfBox - Craggs Lab</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/prism.css">
-    <!--[if lt IE 9]>
+<head>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <base target="_blank">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="citation_title" content="smfBox">
+  <meta name="citation_author" content="Craggs Lab">
+  <meta name="citation_publication_date" content="[insert publicaton date here]">
+  <title>smfBox - Craggs Lab</title>
+
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/prism.css">
+  <!--[if lt IE 9]>
     <script src="javascript/html5shiv/html5shiv.js"></script>
     <![endif]-->
-    <!--[if lt IE 8]>
+  <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
 <a href="http://browsehappy.com/">upgrade your browser</a> to improve your
 experience.</p>
     <![endif]-->
-    <script src="javascript/scale-fix/scale.fix.js"></script>
-    <script src="javascript/python-highlighting/prism.js"></script>
-    <script async  src="javascript/Minimal-MathJax/MathJax.js?config=TeX-AMS_CHTML"></script>
-    <script src="javascript/update_figures.js"></script>
-    <script src="javascript/reference_list/reference_list.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <script src="javascript/scale-fix/scale.fix.js"></script>
+  <script src="javascript/python-highlighting/prism.js"></script>
+  <script async src="javascript/Minimal-MathJax/MathJax.js?config=TeX-AMS_CHTML"></script>
+  <script src="javascript/update_figures.js"></script>
+  <script src="javascript/reference_list/reference_list.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/fancybox.css" />
-<style type="text/css">
+  <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/fancybox.css" />
+  <style type="text/css">
     a.fancybox img {
-        border: none;
+      border: none;
     }
-</style>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <script src="header.js"></script>
-      </header>
-<!--
+
+    em, i, dfn {
+        font-style: italic;
+    }
+
+    .mono {
+        font: 1em/1.5em 'Andale Mono', 'Lucida Console', monospace;
+        background-color: #00000000;
+    }
+
+    div.description {
+      width: 95%;
+      margin: 0 auto;
+    }
+  </style>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/tabs.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/infobox.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/card.css"/>
+  <script src="javascript/tabs.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <script src="header.js"></script>
+    </header>
+    <!--
 ##############################################################
 The real text begins here.
 ##############################################################
  -->
- <section>
+    <section>
 
-<h1 id="Operational Software">Operational Software</h1>
+      <h1 id="Operational Software">Operational Software</h1>
 
-To operate the smfBox, software is required to operate the nanostage for focussing the confocal spot into the sample, controlling the laser alternation, and saving the incoming data from the detectors. Additionally, a simple tool which displays a line plot of incoming light intensity onto the detectors is useful for general alignment purposes.
-<br>
-For all of these we provide labview based executables which can be downloaded from our github <a href="https://github.com/BenjaminAmbrose/smfBox/tree/master/acqsoftware" target="_self">here</a>
-<br>
-For these to work you will need to install the following:
-<br>
-<a href="http://www.ni.com/download/labview-run-time-engine-2016/6067/en/" target="_self">LabVIEW runtime 2016 64 bit</a>
-<br>
-<a href="http://www.ni.com/download/ni-visa-run-time-engine-16.0/6188/en/" target="_self">VISA runtime engine 16.0 64 bit</a>
-<br>
-<a href="http://www.ni.com/en-gb/support/downloads/drivers/download.ni-daqmx.html#288254" target="_self">NI-DAQmx 16.0 64 bit</a>
-</p>
+      To operate the smfBox, software is required to operate the nanostage for focussing the confocal spot into the
+      sample, controlling the laser alternation, and saving the incoming data from the detectors. Additionally, a simple
+      tool which displays a line plot of incoming light intensity onto the detectors is useful for general alignment
+      purposes. To this end we provide both LabVIEW executables and an open source C++ implementation.
+
+      <br>
+      <br>
+
+      <div class="tab">
+        <button id="defaultTab" class="tablinks" onclick="openTab(event, 'CPP')">C++</button>
+        <button class="tablinks" onclick="openTab(event, 'LabVIEW')">LabVIEW</button>
+      </div>
+
+      <div id="CPP" class="tabcontent">
+        <h2>Installation</h2>
+
+        <div class="description">
+          Pre-compiled executables are available from <a href="" target="_self">our github</a>. To install, simply download the zip, extract it to a location of your choosing and run the smfBoxAcquisition.exe.
+
+          <br>
+
+          The executables require the following to be installed to operate correctly:
+          <ul>
+            <li>A copy of <a href="http://www.ni.com/en-gb/support/downloads/drivers/download.ni-daqmx.html#288254" target="_self">NI-DAQmx</a></li>
+            <li>A 64-bit copy of the <a href="https://www.thorlabs.com/software_pages/viewsoftwarepage.cfm?code=ThorCam" target="_self">ThorCam software</a></li>
+          </ul>
+        </div>
+
+        <h2>Compilation from Source</h2>
 
 
-<h1 id="Focussing Software"><a id="body"></a>Focussing Software</h1>
-  <figure style="max-width:1225px;">
-  <img src="images/focsoftware.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; ">
-  <figcaption>
-  <strong>Fig 1:</strong> Front panel of the focussing software
-  </figcaption></figure> <br>
+        <div class="description">A copy of Visual Studio 2017 or later and an installation of Qt 5.12 is required to compile from source (these are available from <a href="https://visualstudio.microsoft.com/downloads/" target="_self">here</a> and <a href="https://www.qt.io/download" target="_self">here</a> respectively. The free community editions are sufficient). The code additionally depends on the NIDAQ C SDK which comes with an installation of DAQmx (link), the ThorCam C SDK which comes with an installation of the ThorCam software and a copy of the HDF5 C++ library. The HDF5 library can be compiled from source (available <a href="https://www.hdfgroup.org/downloads/hdf5/" target="_self">here</a>. Version 1.10.4 was used to develop the software but later versions should work) or a compatible compiled version can be downloaded from our GitHub.</div>
 
-  The focussing software controls the z-position of the stage and shows the CCD camera view of the backreflection of your sampple, which allows you to focus the confocal spot into the sample.
-  <br>
-  To operate, first place a drop of liquid on a coverslip on the objective. With either of the lasers on, move the slider for the z-position up until the back reflection shrinks to it's smallest point. Then move slightly further up (~20  μm) so that the back reflection enlarges again. The confocal spot is now focused into the sample.
+        <br>
+
+        <div class="description">Once all the dependencies have been installed, download the code from our GitHub. Ensure that the dependencies are found in the parent folder of the source directory as shown in the diagram below. The project can now be opened in Qt Creator (installed by default with Qt). Alternatively, the project can be opened in Visual Studio by installing the Qt plugin and selecting import .pro file project from the Qt VS dropdown. The code can then be compiled by selecting the build (or build and run) button in your chosen IDE. The executable should appear in <code class="mono">%SRC_DIR%/build/Debug</code> or <code class="mono">%SRC_DIR%/build/Release</code> depending on your compilation settings. </div>
+
+        <br> 
+
+        <div class="description note-box">Note: Unless you plan on making changes and/or debugging the application you should compile the code in release mode. This applies several optimisations that will help prevent issues like GUI lag and buffer overflows. Additionally, if you plan on deploying the compiled executable on a computer that does not have Visual Studio 2017 installed you MUST compile in release mode (Debug executables rely on system libraries that are only present if you have a copy of Visual Studio installed). </div>
+
+        <br>
+
+        <div class="description">To deploy the project, a powershell script is provided. Simply open a powershell window, navigate to the source folder and run ./deploy.ps1. This will create a deploy folder in <code class="mono">%SRC_DIR%/build</code> that contains all the files required to run the program on the desired computer. </div>
+
+        <br>
+
+        <div class="description note-box">Note: This will fail if you have yet to build the program in release mode</div>
+
+        <br>
+
+        <div class="description note-box">Note: This will probably fail if you are using a Qt version other than 5.12.0 or you didn't install Qt to its default location. This can be fixed by editing the first line in deploy.ps1 from <code class="mono">C:\Qt\5.12.0\...</code> to <code class="mono">C:\&lt;Your_Qt_Install_Dir&gt;\&lt;Your_Qt_Version&gt;\...</code> </div>
+
+        <h2>Acquisition Settings</h2>
+
+        <div class="card">
+          <img src="images/CPP_AcquisitionSettings.png" style="width:100%">
+          <div class="container">
+            The Acquisition Settings Section
+          </div>
+        </div>
+
+        <div class="description">The acquisition settings section contains settings for and status of the current experiment. The experiment length setting controls the time the experiment should run for. The save laser powers setting can be used to perform real time recording of the laser powers as reported by the system's laser power photo-detector. The save interval checkbox toggles automatic saving data to disk during acquisition. The save interval can also be set to the desired value using the field next to the checkbox. During acquisition the circle to the right of the save interval settings indicates the time until the next save to disk. Underneath the acquisition settings is a box containing the total number of donor and acceptor photons collected, the experiment progress indicator and the acquisition control buttons. The start and stop buttons begin and abort an acquisition respectively. The live button starts an acquisition but does not save anything to disk. This is useful for checking that everything is set up correctly before starting the acquisition. </div>
+
+        <br>
+
+        <div class="description warning-box">Warning: The save laser powers option generates significantly more laser power data than photon arrival data. Its recommended that this setting is turned off to reduce file sizes and write times unless you plan to use the laser power data.</div>
+
+        <h2>Laser Duty Cycles</h2>
+
+        <div class="card">
+          <img src="images/CPP_LaserDutyCycles.png" style="width:100%">
+          <div class="container">
+            The Laser Duty Cycles Section
+          </div>
+        </div>
+
+        <div class="description">The laser duty cycles section allows configuration of the laser alternation periods. The first "off" row sets the time from the beginning of an ALEX period that the corresponding laser remains off for. The "on" row sets the time that the lasers remain on for. The final "off" row is the time remaining at the ALEX period that the lasers will be off for. All timings are in percentages of the ALEX period. A graphical representation of the laser duty cycles is available in the "photon distribution tab". The final setting in this section is the ALEX period in us. This is usually set to 100us as this allows for exact synchronisation between all the functions of the NIDAQ board.</div>
+
+        <br>
+
+        <div class="description info-box">Info: The final row of the laser duty cycles table is automatically calculated by the program. If the sum of the initial off and on times for a laser increases to 100% (i.e., the final row is 0) then the program will not allow you to increase the values in the other two boxes until one of them is reduced (as this would result in an inconsistency).</div>
+
+        <br>
+
+        <div class="description note-box">Note: The program attempts to maintain synchronisation between the different functions of the NIDAQ card so many values of the ALEX period are prohibited. If you really need to change the ALEX period this may require changing some of the NI Card Settings to make the timings consistent.</div>
+
+        <h2>Save Settings</h2>
+
+        <div class="card">
+          <img src="images/CPP_SaveSettings.png" style="width:100%">
+          <div class="container">
+            The Save Settings Section
+          </div>
+        </div>
+
+        <div class="description">The save settings box contains inputs for all the metadata required by PhotonHDF5. Settings that are unlikely to change between experiments, e.g. laser wavelengths, are remembered between restarts of the program. The program will ask you before overwriting any previously saved data.</div>
+
+        <h2>Live Trace</h2>
+
+        <div class="card">
+          <img src="images/CPP_LiveTrace.png" style="width:100%">
+          <div class="container">
+            The Live Trace Section
+          </div>
+        </div>
+
+        <div class="description">The live trace shows a real-time plot of the number of photons detected during live mode or an acquisition. The green trace corresponds to lasers detected on the donor APD when the donor laser is on, yellow corresponds to acceptor APD with acceptor laser and DA corresponds to acceptor APD with donor laser. The AA and DA traces are shown as inverted to make it easier to differentiate spikes in their traces from spikes in the DD trace.</div>
+
+        <h2>Photon Distribution</h2>
+
+        <div class="card">
+          <img src="images/CPP_PhotonDistribution.png" style="width:100%">
+          <div class="container">
+            The Photon Distribution Section
+          </div>
+        </div>
+
+        <div class="description">The photon distribution time tab shows a histogram of the photon arrival times with respect to the laser alternations (shown above the histogram). The red, green and yellow bars show the number of DA, DD and AA photons arriving at a given time relative to the laser alternation period whereas the grey bars show any detected photons that cannot be placed into one of these 3 categories. </div>
+        
+        <br>
+
+        <div class="description info-box"> Info: A large number of grey photons is an indication of an issue with the setup of the microscope (e.g., one or both of the lasers not alternating)</div>
+
+        <h2>Z Focus</h2>
+
+        <div class="card">
+          <img src="images/CPP_ZFocus.png" style="width:100%">
+          <div class="container">
+            The Z-Focus Section
+          </div>
+        </div>
+
+        <div class="description">The Z-Focus tab allows you to control the z-position of the stage and shows the output of the CCD camera which is imaging the back-reflection of the sample. This allows you to focus the confocal spot into the sample. To operate, first place a drop of liquid on a coverslip on the objective. With either of the lasers on, move the slider for the z-position up until the back reflection shrinks to it's smallest size. Then move slightly further up (~20&nbsp;μm) so that the back reflection enlarges again. The confocal spot is now focused into the sample. </div>
+
+        <h2>Alignment</h2>
+
+        <div class="card">
+          <img src="images/CPP_Alignment.png" style="width:100%">
+          <div class="container">
+            The Alignment Section
+          </div>
+        </div>
+
+        <div class="description">The alignment tab shows the number of photons detected on each detector, irrespective of which laser was on. To align the emission pathway, place a fluorescent sample (~1&nbsp;μM) on the coverslip which will emit in both channels when excited with the donor excitation laser (we use free cy3B), then maximise the emission intensity reported by iteratively adjusting the positions of the APD lenses (L6 and L7), the pinhole, and if needed M3 and L4. Unlike the live trace graph, the binning and x-range can be adjusted. This allows you to select settings that result in a sufficiently smooth trace to allow you to easily align the system.</div>
+
+        <h2>Live ES Histogram</h2>
+
+        <div class="card">
+          <img src="images/CPP_ESHisto.png" style="width:100%">
+          <div class="container">
+            The Live ES Histogram
+          </div>
+        </div>
+
+        <div class="description">The live ES histogram shows an approximation of the hexagonal ES plots traditionally produced during FRET analysis and helps give you a feel for any issues with your sample before you analyse the data. The FRET efficiency and stoichiometry are calculated and plotted for any spikes in the number of detected photons that surpass both thresholds in a 1ms window. The number of bins slider can be adjusted to change the resolution of the histogram. Increasing it to the maximum value produces a plot that's more like a scatter graph if you prefer this to the hex plot.</div>
+
+        <h2>NI Card Settings</h2>
+
+        <div class="card">
+          <img src="images/CPP_NISettings.png" style="width:100%">
+          <div class="container">
+            The National Instruments Card Settings
+          </div>
+        </div>
+
+        <div class="description">The NI Card Settings tab contains the advanced system settings that should not need to be changed unless you have constructed your system differently to our instructions. These settings are remembered between restarts.</div>
+        
+        <br>
+        
+        <div class="description warning-box">Warning: We do not guarantee that all the software will work as intended with non-standard settings</div>
 
 
-<h1 id="Alignment Tool">Alignment Tool</h1>
-<p>
-  <figure style="max-width:1225px;">
-  <img src="images/alignmenttool.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; ">
-  <figcaption>
-  <strong>Fig 2:</strong> Front panel of the alignment tool
-  </figcaption></figure>
-  <br>
-The alignment tool will show incoming light in photons per millisecond on either APD (avalanche photodiode) without alternating the laser or plotting histograms. This means it can display a much higher incoming photon count without crashing. To align the emission pathway, place a fluorescent sample (~1 uM) on the coverslip which will emit in both channels when excited with the donor excitation laser (we use free cy3B), then maximise the emission intensity reported by iteratively adjusting the positions of the APD lenses (L6 and L7), the pinhole, and if needed M3 and L4.</p>
+      </div>
 
- <h1 id="Acquisition Software"><a id="Acquisition Software"></a>Acquisition Software</h1>
 
-   <figure style="max-width:1043px;">
-   <img src="images/acqsoftware.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; "> <br>
- <figcaption>
-   <strong>Fig 3:</strong> Front panel of the acquisition software with the live traces tab selected
-   </figcaption></figure><br>
-   The acquisition software controls the lasers and APD's, and gives a live view of incoming smFRET data as well as creating the files needed for more in-depth analysis later.
-   The first time you run the acquisition software you will need to go to the NI card settings tab and use the drop down menus to select your NI card information, and the com ports each laser and APD are connected to.
+      <div id="LabVIEW" class="tabcontent">
+        <h2>Installation</h2>
 
-   <ul style="list-style-type:none">
-   <li>1. Labiew start button which begins ALEX and visualisation</li>
-   <li>2. Live time trace. Photons arriving at APD0 (donor) shown in green, and for ADP1 (acceptor) shown in red for photons under donor excitation and yellow for photons under acceptor excitation</li>
-   <li>3. Controls for ALEX, saving, and stopping. When you are ready to begin saving an acquisition, press the save data toggle during visualisation</li>
-   <li>4. ALEX controls. ALEX period controls the length of one full green-red alternation. The duty cycle boxes describe the amount of time each laser is off, then on, then off again for. This means that for the green laser to come on immediately at the beginning of the duty cycle, the first OFF box must be zero. Whilst this formulation may initially seem counter intuitive, it allows for a far greater degree of control over the waveform of each laser duty cycle than simply describing Gon/Goff/Ron/Roff. This information is written into the metadata file, and pulled back out during file conversion to assign photons to channels.</li>
-   <li>5. Location and name of saved files. You can set a max file size smaller than the experiment length and it will save as multiple files.</li>
-   <li>6. Metadata typed here will be written into the meta data file, it will not affect the nature of the data itself.</li>
-   <li>7. The visualisation control boxes affect the live 2D ES histogram on the bottom right. This histogram is built crudely and should not be used for rigorous data analysis, as it simply plots millisecond time bins exceeding the stated thresholds, rather than performing a full burst search. </li>
-   <li>8. Controls for the live data visualisation. These do not affect the final saved data, only the live display.</li>
-   </ul>
-<br> Under normal operation; a user will typically place a sample on the scope, then press play (1) to check the quality/concentration before acquisition, we usually aim for 1-3 bursts per second to avoid co-incident events. If the sample needs to be changed again, press the stop button (3) before opening the lid of the smfBox to prevent ambient light from flooding the APD's. When happy with the sample, choose acquisition length and save location in (5), add metadata in (6), then press "Save Data" to begin the acquisition.
-<br> The diagnostics tab can be used to determine any problems with the software or hardware, and the photon distribution tab will give a live histogram of when photons have been detected with respect to the ALEX period. This can be a useful diagnostic of whether the lasers are being controlled properly without having to create a file for analysis first.
-
-</section>
-<br><footer><script src="footer.js"></script></footer>
- <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+        The LabVIEW executables can be dowloaded from 
+          <a href="https://github.com/BenjaminAmbrose/smfBox/tree/master/acqsoftware" target="_self">our github</a>
+        <br>
+        For these to work you will need to install the following:
+        <br>
+        <a href="http://www.ni.com/download/labview-run-time-engine-2016/6067/en/" target="_self">LabVIEW runtime 2016 64
+          bit</a>
+        <br>
+        <a href="http://www.ni.com/download/ni-visa-run-time-engine-16.0/6188/en/" target="_self">VISA runtime engine 16.0
+          64 bit</a>
+        <br>
+        <a href="http://www.ni.com/en-gb/support/downloads/drivers/download.ni-daqmx.html#288254" target="_self">NI-DAQmx
+          16.0 64 bit</a>
+        </p>
+      
+      
+        <h1 id="Focussing Software"><a id="body"></a>Focussing Software</h1>
+        <figure style="max-width:1225px;">
+          <img src="images/focsoftware.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; ">
+          <figcaption>
+            <strong>Fig 1:</strong> Front panel of the focussing software
+          </figcaption>
+        </figure> <br>
+      
+        The focussing software controls the z-position of the stage and shows the CCD camera view of the backreflection of
+        your sampple, which allows you to focus the confocal spot into the sample.
+        <br>
+        To operate, first place a drop of liquid on a coverslip on the objective. With either of the lasers on, move the
+        slider for the z-position up until the back reflection shrinks to it's smallest point. Then move slightly further
+        up (~20 μm) so that the back reflection enlarges again. The confocal spot is now focused into the sample.
+      
+      
+        <h1 id="Alignment Tool">Alignment Tool</h1>
+        <p>
+          <figure style="max-width:1225px;">
+            <img src="images/alignmenttool.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; ">
+            <figcaption>
+              <strong>Fig 2:</strong> Front panel of the alignment tool
+            </figcaption>
+          </figure>
+          <br>
+          The alignment tool will show incoming light in photons per millisecond on either APD (avalanche photodiode)
+          without alternating the laser or plotting histograms. This means it can display a much higher incoming photon
+          count without crashing. To align the emission pathway, place a fluorescent sample (~1 uM) on the coverslip which
+          will emit in both channels when excited with the donor excitation laser (we use free cy3B), then maximise the
+          emission intensity reported by iteratively adjusting the positions of the APD lenses (L6 and L7), the pinhole,
+          and if needed M3 and L4.
+        </p>
+      
+        <h1 id="Acquisition Software"><a id="Acquisition Software"></a>Acquisition Software</h1>
+      
+        <figure style="max-width:1043px;">
+          <img src="images/acqsoftware.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; "> <br>
+          <figcaption>
+            <strong>Fig 3:</strong> Front panel of the acquisition software with the live traces tab selected
+          </figcaption>
+        </figure><br>
+        The acquisition software controls the lasers and APD's, and gives a live view of incoming smFRET data as well as
+        creating the files needed for more in-depth analysis later.
+        The first time you run the acquisition software you will need to go to the NI card settings tab and use the drop
+        down menus to select your NI card information, and the com ports each laser and APD are connected to.
+      
+        <ul style="list-style-type:none">
+          <li>1. Labiew start button which begins ALEX and visualisation</li>
+          <li>2. Live time trace. Photons arriving at APD0 (donor) shown in green, and for ADP1 (acceptor) shown in red
+            for photons under donor excitation and yellow for photons under acceptor excitation</li>
+          <li>3. Controls for ALEX, saving, and stopping. When you are ready to begin saving an acquisition, press the
+            save data toggle during visualisation</li>
+          <li>4. ALEX controls. ALEX period controls the length of one full green-red alternation. The duty cycle boxes
+            describe the amount of time each laser is off, then on, then off again for. This means that for the green
+            laser to come on immediately at the beginning of the duty cycle, the first OFF box must be zero. Whilst this
+            formulation may initially seem counter intuitive, it allows for a far greater degree of control over the
+            waveform of each laser duty cycle than simply describing Gon/Goff/Ron/Roff. This information is written into
+            the metadata file, and pulled back out during file conversion to assign photons to channels.</li>
+          <li>5. Location and name of saved files. You can set a max file size smaller than the experiment length and it
+            will save as multiple files.</li>
+          <li>6. Metadata typed here will be written into the meta data file, it will not affect the nature of the data
+            itself.</li>
+          <li>7. The visualisation control boxes affect the live 2D ES histogram on the bottom right. This histogram is
+            built crudely and should not be used for rigorous data analysis, as it simply plots millisecond time bins
+            exceeding the stated thresholds, rather than performing a full burst search. </li>
+          <li>8. Controls for the live data visualisation. These do not affect the final saved data, only the live
+            display.</li>
+        </ul>
+        <br> Under normal operation; a user will typically place a sample on the scope, then press play (1) to check the
+        quality/concentration before acquisition, we usually aim for 1-3 bursts per second to avoid co-incident events. If
+        the sample needs to be changed again, press the stop button (3) before opening the lid of the smfBox to prevent
+        ambient light from flooding the APD's. When happy with the sample, choose acquisition length and save location in
+        (5), add metadata in (6), then press "Save Data" to begin the acquisition.
+        <br> The diagnostics tab can be used to determine any problems with the software or hardware, and the photon
+        distribution tab will give a live histogram of when photons have been detected with respect to the ALEX period.
+        This can be a useful diagnostic of whether the lasers are being controlled properly without having to create a
+        file for analysis first.
+      </div>
+    </section>
+    <br>
+    <footer>
+      <script src="footer.js"></script>
+    </footer>
+    <script> document.getElementById('defaultTab').click() </script>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 </body>
+
 </html>
