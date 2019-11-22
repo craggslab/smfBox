@@ -97,7 +97,7 @@ The real text begins here.
         <h2>Installation</h2>
 
         <div class="description">
-          Pre-compiled executables are available from <a href="" target="_self">our github</a>. To install, simply download the zip, extract it to a location of your choosing and run the smfBoxAcquisition.exe.
+          Pre-compiled executables are available from <a href="https://github.com/craggslab/smfBox/releases" target="_self">the releases section of our github</a>. To install, simply download the zip, extract it to a location of your choosing and run the smfBoxAcquisition.exe.
 
           <br>
 
@@ -117,7 +117,7 @@ The real text begins here.
 
         <div class="description">Once all the dependencies have been installed, download the code from our GitHub. Ensure that the dependencies are found in the parent folder of the source directory as shown in the diagram below. The project can now be opened in Qt Creator (installed by default with Qt). Alternatively, the project can be opened in Visual Studio by installing the Qt plugin and selecting import .pro file project from the Qt VS dropdown. The code can then be compiled by selecting the build (or build and run) button in your chosen IDE. The executable should appear in <code class="mono">%SRC_DIR%/build/Debug</code> or <code class="mono">%SRC_DIR%/build/Release</code> depending on your compilation settings. </div>
 
-        <br> 
+        <br>
 
         <div class="description note-box">Note: Unless you plan on making changes and/or debugging the application you should compile the code in release mode. This applies several optimisations that will help prevent issues like GUI lag and buffer overflows. Additionally, if you plan on deploying the compiled executable on a computer that does not have Visual Studio 2017 installed you MUST compile in release mode (Debug executables rely on system libraries that are only present if you have a copy of Visual Studio installed). </div>
 
@@ -199,7 +199,7 @@ The real text begins here.
         </div>
 
         <div class="description">The photon distribution time tab shows a histogram of the photon arrival times with respect to the laser alternations (shown above the histogram). The red, green and yellow bars show the number of DA, DD and AA photons arriving at a given time relative to the laser alternation period whereas the grey bars show any detected photons that cannot be placed into one of these 3 categories. </div>
-        
+
         <br>
 
         <div class="description info-box"> Info: A large number of grey photons is an indication of an issue with the setup of the microscope (e.g., one or both of the lasers not alternating)</div>
@@ -247,9 +247,9 @@ The real text begins here.
         </div>
 
         <div class="description">The NI Card Settings tab contains the advanced system settings that should not need to be changed unless you have constructed your system differently to our instructions. These settings are remembered between restarts.</div>
-        
+
         <br>
-        
+
         <div class="description warning-box">Warning: We do not guarantee that all the software will work as intended with non-standard settings</div>
 
 
@@ -259,8 +259,8 @@ The real text begins here.
       <div id="LabVIEW" class="tabcontent">
         <h2>Installation</h2>
 
-        The LabVIEW executables can be dowloaded from 
-          <a href="https://github.com/BenjaminAmbrose/smfBox/tree/master/acqsoftware" target="_self">our github</a>
+        The LabVIEW executables can be dowloaded from
+          <a href="https://github.com/craggslab/smfBox/releases" target="_self">the releases section of our github</a>
         <br>
         For these to work you will need to install the following:
         <br>
@@ -273,8 +273,8 @@ The real text begins here.
         <a href="http://www.ni.com/en-gb/support/downloads/drivers/download.ni-daqmx.html#288254" target="_self">NI-DAQmx
           16.0 64 bit</a>
         </p>
-      
-      
+
+
         <h1 id="Focussing Software"><a id="body"></a>Focussing Software</h1>
         <figure style="max-width:1225px;">
           <img src="images/focsoftware.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; ">
@@ -282,15 +282,15 @@ The real text begins here.
             <strong>Fig 1:</strong> Front panel of the focussing software
           </figcaption>
         </figure> <br>
-      
+
         The focussing software controls the z-position of the stage and shows the CCD camera view of the backreflection of
         your sampple, which allows you to focus the confocal spot into the sample.
         <br>
         To operate, first place a drop of liquid on a coverslip on the objective. With either of the lasers on, move the
         slider for the z-position up until the back reflection shrinks to it's smallest point. Then move slightly further
         up (~20 μm) so that the back reflection enlarges again. The confocal spot is now focused into the sample.
-      
-      
+
+
         <h1 id="Alignment Tool">Alignment Tool</h1>
         <p>
           <figure style="max-width:1225px;">
@@ -307,9 +307,9 @@ The real text begins here.
           emission intensity reported by iteratively adjusting the positions of the APD lenses (L6 and L7), the pinhole,
           and if needed M3 and L4.
         </p>
-      
+
         <h1 id="Acquisition Software"><a id="Acquisition Software"></a>Acquisition Software</h1>
-      
+
         <figure style="max-width:1043px;">
           <img src="images/acqsoftware.png" style="mix-blend-mode: multiply; width:90%; padding-left:5%; "> <br>
           <figcaption>
@@ -320,7 +320,7 @@ The real text begins here.
         creating the files needed for more in-depth analysis later.
         The first time you run the acquisition software you will need to go to the NI card settings tab and use the drop
         down menus to select your NI card information, and the com ports each laser and APD are connected to.
-      
+
         <ul style="list-style-type:none">
           <li>1. Labiew start button which begins ALEX and visualisation</li>
           <li>2. Live time trace. Photons arriving at APD0 (donor) shown in green, and for ADP1 (acceptor) shown in red
