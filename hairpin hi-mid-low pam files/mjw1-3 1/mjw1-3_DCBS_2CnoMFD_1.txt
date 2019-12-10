@@ -1,0 +1,42 @@
+Burst search settings:
+
+Burst search method:		DCBS 2C-noMFD
+Smoothing method:		Sliding Time Window
+Minimum burst size:		50 photons
+Time window:		500
+Photons per time window GX:	5
+Photons per time window RR:	5
+
+
+2CDE filter parameter:	100 mus
+
+Analysis date:	13-May-2019 11:35:46
+
+
+Meta Data:
+
+Filename:	mjw1-3.hdf5
+Recording date:	13-May-2019 11:12:12
+User:		User
+Comment:	
+
+Sample:		Test Sample
+Buffer:		Sample Buffer
+Exc.Wav.:	532, 647
+Exc.Pow.[muW]:	100, 100
+Dyes:		Atto532, Atto647N
+Meas. Dur.:	7200.00 s
+
+Detector Information
+Name:   Det# Rout# Filter Pol  BS
+Green   1    1     500/50 Par none
+Red     2    1     500/25 none none
+
+Profile name:	FRET-HDF-Craggs
+
+PIE Channel Information
+Name:Det# Rout# From To   Background [kHz]
+GG  1    1     1    4500 0.64
+GR  2    1     1    4500 0.64
+RR  2    1     5000 9500 0.00
+

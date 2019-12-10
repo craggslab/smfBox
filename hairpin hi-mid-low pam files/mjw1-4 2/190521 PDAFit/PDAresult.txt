@@ -1,0 +1,21 @@
+FileNames	k_12 [ms^-1]	R_1 [A]	sigma_1 [A]	k_21 [ms^-1]	R_2 [A]	sigma_2 [A]	A_3	R_3 [A]	sigma_3 [A]	A_4	R_4 [A]	sigma_4 [A]	A_5	R_5 [A]	sigma_5 [A]	D_only	chi^2_red.
+mjw 1-4_DCBS_2CnoMFD_Global Cuts_0.5ms_3.pda	0.000	63.394	0.863	0.000	54.528	3.620	0.000	50.000	5.000	0.000	50.000	5.000	0.000	50.000	5.000	0.000	1.957
+
+Parameters:
+Gamma	Direct Exc	Crosstalk	BGD [kHz]	BGA [kHz]	R0 [A]	Bin [ms]
+1.000	0.000	0.000	0.643	0.643	50.000	0.500
+
+Settings:
+Dynamic	1
+IgnoreOuterBins	0
+HalfGlobal	0
+DeconvoluteBackground	0
+FixSigmaAtFraction	0
+SigmaAtFractionOfR	6.400000e-02
+FixSigmaAtFractionFix	1
+NoBins	101
+MinPhotons	20
+MaxPhotons	250
+GridRes	100
+Smin	0.000
+Smax	1.000
