@@ -1,6 +1,6 @@
 Home of the smfBox GithubPages documents. See the site in action on https://craggslab.github.io/smfBox/. 
 
-Preprint now live at https://www.biorxiv.org/content/10.1101/861922v1
+Publication now live at https://www.nature.com/articles/s41467-020-19468-4
 
 forked from https://github.com/BenjaminAmbrose/smfBox 28/05/2019
 
